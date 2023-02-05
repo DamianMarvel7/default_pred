@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+<head>
+  <style>
+    .text-upward {
+      position: relative;
+      top: -130px !important;
+    }
+  </style>
+</head>
+ <div class="login">
+	<h1 class="text-upward">Predict Credit Card Default</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" class="text-upward">
+    	<input type="text" name="LIMIT_BAL" placeholder="How much you want to loan (in $)" required="required" />
+        <input type="text" name="SEX" placeholder="Sex (female/male)" required="required" />
+		<input type="text" name="EDUCATION" placeholder="EDUCATION (university/ graduate school/ high school/ others)" required="required" />
+    <input type="text" name="MARRIAGE" placeholder="MARRIAGE (single/ married/ divorce)" required="required" />
+        <input type="text" name="AGE" placeholder="AGE" required="required" />
+		<input type="text" name="PAY_0" placeholder="Credit history (0:duly,(1,2,3:delayed in month))" required="required" />
+    <input type="text" name="PAY_AMT_MEAN" placeholder="Mean of previous payment in 6 month (in $)" required="required" />
+        <input type="text" name="BILL_MEAN" placeholder="Mean of previous bill in 6 month (in $)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <h1 class="text-upward">    {{ prediction_text }}</h1>
+
+   <br>
+   <br>
+
+   
+
+ </div>
+
+
+</body>
+</html>
